@@ -1,14 +1,14 @@
 <script>
 	import DisplayInput from './DisplayInput.svelte';
 	import Button from './Button.svelte';
-  
+
   let value="";
 
   const handleClearButtonClick = () => {
     value = "";
   }
 
-  const handleButtonClick = (text) => () => {
+  const handleButtonClick = (text) => () => { //high ordered function (used for extending event callback with text variable)
     value += text;
   }
 
