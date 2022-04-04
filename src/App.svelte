@@ -1,20 +1,22 @@
 <script>
 	import DisplayInput from './DisplayInput.svelte';
 	import Button from './Button.svelte';
-
-  let value="";
+  import calculatorStore from "./calculator-store";
+ 
+  const { setValue } = $calculatorStore;
 
   const handleClearButtonClick = () => {
-    value = "";
+  setValue("");
   }
 
   const handleButtonClick = (text) => () => { //high ordered function (used for extending event callback with text variable)
-    value += text;
+  setValue($calculatorStore.value + text);
   }
 
   const handleResultButtonClick = () => {
     try {
-      value = eval(value);
+      const newValue= eval($calculatorStore.value);
+      setValue(newValue + "");
     } catch (err) {
       alert(err.message);
     }
@@ -25,7 +27,7 @@
 	<img src="img/owl1.png" alt="logo" height="200px" width="200px" />
 </p>
 <h2>My JS Calculator</h2>
-<DisplayInput value={value}/>
+<DisplayInput />
 <table class="center">
 	<tr>
 		<td>

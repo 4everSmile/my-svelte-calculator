@@ -6,9 +6,11 @@
 </style>
 
 <script>
-    export let value;
+import calculatorStore from "./calculator-store";
+
 </script>
 
 <p class="text-align-center">
-    <input class="display-input" type="text" readonly bind:value={value} />
+    <input class="display-input" type="text" readonly bind:value={$calculatorStore.value} /> <!--input HTML tag will be rerendered when value 
+        property changes due to bind-->
 </p>

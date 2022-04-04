@@ -17,7 +17,7 @@
 
 <script>
     export let text;
-    export let className = "calc-button";
+    export let className = "calc-button";// default value for className property (will be used when className is not passed to component) 
     export let onClick;
 </script>
 
